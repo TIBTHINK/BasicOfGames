@@ -1,8 +1,6 @@
 package com.tibthink.main;
 
-import java.awt.Canvas;
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.image.BufferStrategy;
 
 public class Game extends Canvas implements Runnable{
@@ -78,7 +76,7 @@ public class Game extends Canvas implements Runnable{
 		
 		Graphics g = bs.getDrawGraphics();
 		
-		g.setColor(Color.blue);
+		g.setColor(Color.yellow);
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 		
 		g.dispose();
