@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Game extends Canvas implements Runnable{
 	
-	private static final long serialVersionUID = -8753144288249705774L;
+	private static final long serialVersionUID = 8753144288249705774L;
 	
 	public static final int WIDTH = 640, HEIGHT = WIDTH / 12*9;
 	
@@ -22,8 +22,7 @@ public class Game extends Canvas implements Runnable{
 		new Window(WIDTH, HEIGHT, "GAME", this);
 		r = new Random();
 		handler.addObject(new Player(r.nextInt(WIDTH/2-32), r.nextInt(HEIGHT/2-32), ID.Player));
-		handler.addObject(new Player(r.nextInt(WIDTH/2+62), r.nextInt(HEIGHT/2+62), ID.Player2));
-		
+		handler.addObject(new BasicEnemy(r.nextInt(WIDTH/2-32), r.nextInt(HEIGHT/2-32), ID.BasicEnemy));
 	}
 	
 	
@@ -61,16 +60,8 @@ public class Game extends Canvas implements Runnable{
 			if(running)
 				render();
 			frames++;
-//			
-//			if(System.currentTimeMillis() - timer > 1000) {
-//				timer += 1000;
-//				System.out.println("FPS: " + frames);
-//				frames = 0;
-		
-			}
-			stop();
 		}
-		
+	}
 		
 	private void tick() {
 		handler.tick();
@@ -93,6 +84,15 @@ public class Game extends Canvas implements Runnable{
 		
 		g.dispose();
 		bs.show();
+	}
+	
+	public static int clamp(int var, int min, int max) {
+		if(var >= max)
+			return var = max;
+		else if(var <= min)
+			return var = min;
+		else return var;
+		
 	}
 
 	public static void main(String args[]) {
