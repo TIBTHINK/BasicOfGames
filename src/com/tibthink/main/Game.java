@@ -20,11 +20,9 @@ public class Game extends Canvas implements Runnable{
 		handler = new Handler();
 		this.addKeyListener(new KeyInput(handler));
 		new Window(WIDTH, HEIGHT, "GAME", this);
-		
 		r = new Random();
-		
-		handler.addObject(new Player(r.nextInt(WIDTH/ 2-32), r.nextInt(HEIGHT/ 2-32), ID.Player));
-		handler.addObject(new Player(r.nextInt(WIDTH/ 2+62), r.nextInt(HEIGHT/ 2+62), ID.Player2));
+		handler.addObject(new Player(r.nextInt(WIDTH/2-32), r.nextInt(HEIGHT/2-32), ID.Player));
+		handler.addObject(new Player(r.nextInt(WIDTH/2+62), r.nextInt(HEIGHT/2+62), ID.Player2));
 		
 	}
 	
@@ -63,15 +61,16 @@ public class Game extends Canvas implements Runnable{
 			if(running)
 				render();
 			frames++;
-			
-			if(System.currentTimeMillis() - timer > 1000) {
-				timer += 1000;
-				System.out.println("FPS: " + frames);
-				frames = 0;
+//			
+//			if(System.currentTimeMillis() - timer > 1000) {
+//				timer += 1000;
+//				System.out.println("FPS: " + frames);
+//				frames = 0;
+		
 			}
+			stop();
 		}
-		stop();
-	}
+		
 		
 	private void tick() {
 		handler.tick();
