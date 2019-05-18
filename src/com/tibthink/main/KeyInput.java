@@ -15,7 +15,7 @@ public class KeyInput extends KeyAdapter{
 		
 		for(int i = 0; i < handler.object.size(); i++) {
 			GameObject tempObject = handler.object.get(i);
-			
+			 
 			if(tempObject.getId() == ID.Player) {
 				//key events for mother fuckin playa 1 bitch
 				
@@ -45,6 +45,7 @@ public class KeyInput extends KeyAdapter{
 			}
 			
 		}
+		//press esc to leave the game 
 		if(key == KeyEvent.VK_ESCAPE) System.exit(1);
 	 }
 }
